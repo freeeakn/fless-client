@@ -1,0 +1,16 @@
+app-id: com.fless.Client
+runtime: org.gnome.Platform
+runtime-version: '46'
+sdk: org.gnome.Sdk
+command: fless-client.js
+modules:
+  - name: fless-client
+    buildsystem: simple
+    build-commands:
+      - install -D fless-client.js /app/bin/fless-client.js
+      - install -D com.fless.Client.desktop /app/share/applications/
+    sources:
+      - type: file
+        path: fless-client.js
+      - type: file
+        path: com.fless.Client.desktop

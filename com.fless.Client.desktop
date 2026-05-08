@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=VLESS VPN Client
+Comment=VLESS VPN Client
+Exec=/app/bin/fless-client.js
+Icon=network-vpn
+Type=Application
+Categories=Network;
