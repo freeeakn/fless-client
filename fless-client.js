@@ -167,7 +167,7 @@ app.connect('activate', () => {
     print('DEBUG: activate called');
     let window = new Gtk.ApplicationWindow({
         application: app,
-        title: 'VLESS VPN Client',
+        title: 'FLESS VPN Client',
         default_width: 600,
         default_height: 300
     });
@@ -190,12 +190,6 @@ app.connect('activate', () => {
     urlEntry.set_editable(true);
     hbox.append(urlEntry);
 
-    let loadExampleBtn = Gtk.Button.new_with_label('Example');
-    loadExampleBtn.connect('clicked', () => {
-        print('DEBUG: Load Example clicked');
-        urlEntry.set_text('vless://TMG_818a6e280d2@94.103.0.17:443?type=xhttp&encryption=none&path=%2FrBzVNM5gD9McgRQ2&host=www.kinopoisk.ru&mode=auto&security=reality&fp=chrome&pbk=X0RzjWwgbaL3gEgpEhuKrgf0J6p1Bb9LsZtoPbDXCho&sni=www.kinopoisk.ru&sid=3b&spx=%2F#TMG_818a6e280d2-Poland');
-    });
-    hbox.append(loadExampleBtn);
     box.append(hbox);
 
     // Server Info
