@@ -249,6 +249,10 @@ function connectVPN(config) {
     let xrayPath = './xray-bin/xray';
     let xrayFile = Gio.File.new_for_path(xrayPath);
     if (!xrayFile.query_exists(null)) {
+        xrayPath = '/app/xray-bin/xray';
+        xrayFile = Gio.File.new_for_path(xrayPath);
+    }
+    if (!xrayFile.query_exists(null)) {
         xrayPath = '/usr/bin/xray';
         xrayFile = Gio.File.new_for_path(xrayPath);
         if (!xrayFile.query_exists(null)) {
