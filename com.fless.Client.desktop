@@ -2,6 +2,6 @@
 Name=VLESS VPN Client
 Comment=VLESS VPN Client
 Exec=/app/bin/fless-client.js
-Icon=network-vpn
+Icon=com.fless.Client
 Type=Application
 Categories=Network;

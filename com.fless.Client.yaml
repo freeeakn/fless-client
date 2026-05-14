@@ -1,16 +1,38 @@
 app-id: com.fless.Client
 runtime: org.gnome.Platform
-runtime-version: '46'
+runtime-version: '49'
 sdk: org.gnome.Sdk
 command: fless-client.js
+
+finish-args:
+  - --socket=x11
+  - --socket=wayland
+  - --share=network
+  - --socket=session-bus
+
 modules:
+  - name: xray-core
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 xray /app/xray-bin/xray
+      - install -Dm644 geoip.dat /app/xray-bin/geoip.dat
+      - install -Dm644 geosite.dat /app/xray-bin/geosite.dat
+    sources:
+      - type: archive
+        url: https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-linux-64.zip
+        sha256: 23cd9af937744d97776ee35ecad4972cf4b2109d1e0fe6be9930467608f7c8ae
+        strip-components: 0
+
   - name: fless-client
     buildsystem: simple
     build-commands:
-      - install -D fless-client.js /app/bin/fless-client.js
-      - install -D com.fless.Client.desktop /app/share/applications/
+      - install -Dm755 fless-client.js /app/bin/fless-client.js
+      - install -Dm644 com.fless.Client.desktop /app/share/applications/com.fless.Client.desktop
+      - install -Dm644 com.fless.Client.svg /app/share/icons/hicolor/scalable/apps/com.fless.Client.svg
     sources:
       - type: file
         path: fless-client.js
       - type: file
         path: com.fless.Client.desktop
+      - type: file
+        path: com.fless.Client.svg
